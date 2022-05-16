@@ -1,0 +1,40 @@
+service: serverless-example
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  nestjs_demo_user:
+    handler: dist/lambda.handler
+    events:
+      - http:
+          method: ANY
+          path: /user
+      - http:
+          method: ANY
+          path: /user/{any+}
+
+  nestjs_demo_client:
+    handler: dist/lambda.handler
+    events:
+      - http:
+          method: ANY
+          path: /client
+      - http:
+          method: ANY
+          path: /client/{any+}
+
+  nestjs_demo_test:
+    handler: dist/lambda.handler
+    events:
+      - http:
+          method: ANY
+          path: /test      
+#      - http:
+#          method: ANY
+#          path: /config
+          
