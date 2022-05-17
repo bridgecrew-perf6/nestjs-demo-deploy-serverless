@@ -18,7 +18,19 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "nodemon": "nodemon -e js,ts,jsx,tsx,json -x nest build",
+    "sls": "concurrently \"serverless offline -s dev\" \"npm run nodemon\"",
+    "sls:debug": "export SLS_DEBUG=* && npm run sls"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "test/*",
+      "docs/*",
+      "dist/*",
+      ".vscode/*"
+    ],
+    "delay": 1
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
@@ -43,11 +55,13 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "concurrently": "^7.2.0",
     "dotenv": "^16.0.1",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "28.0.3",
+    "nodemon": "^2.0.16",
     "prettier": "^2.3.2",
     "serverless-offline": "^8.7.0",
     "source-map-support": "^0.5.20",

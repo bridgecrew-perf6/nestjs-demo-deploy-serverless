@@ -72,3 +72,13 @@ npm run build && sls deploy
 
 otro tutorial para desplegar en aws lambda: https://medium.com/swlh/run-nestjs-application-in-serverless-framework-on-aws-a93a75b8b6c6
 
+
+Debugear con visual studio code con serverless
+
+- Seleccionar el "Debug Serverless Nest"
+- Se añade nodemon para recomplilar archivos desde serverless offline
+
+Cosas que quedan faltando:
+
+- añadir en un contenedor
+- que funcione el debug desde el contenedor
